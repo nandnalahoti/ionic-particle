@@ -30,16 +30,80 @@
       <div *ngIf="subscribed">
         <h3>Device variables</h3>
         <!--
-            Finally, we can display the variable var1, which is defined in variable.ts
+            Finally, we can display the variable uv, which is defined in variable.ts
         -->
         <p>
-        The device variable "var1" is periodically polled, and the current value is {{var1}} 
+        The device variable "uv" is periodically polled, and the current value is {{uv}}
         </p>
+        <img src="/assets/img/uviscaleh_lg.gif" />
       </div>
+      <div *ngIf="uv >= 0 && uv < 2">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-3><img src="/assets/img/uvi-low.jpg"/></ion-col>
+            <ion-col col-9>
+              A UV Index reading of 0 to 2 means low danger from the sun's UV rays for the average person.
+              Wear sunglasses on bright days. If you burn easily, cover up and use broad spectrum SPF 30+ sunscreen.
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <div *ngIf="uv >= 3 && uv < 5">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-3><img src="/assets/img/uvi-moderate.jpg"/></ion-col>
+            <ion-col col-9>
+              A UV Index reading of 3 to 5 means moderate risk of harm from unprotected sun exposure. Stay in shade near midday when the sun is strongest.
+              If outdoors, wear protective clothing, a wide-brimmed hat, and UV-blocking sunglasses. Generously apply broad spectrum SPF 30+ sunscreen every 2 hours, even on cloudy days, and after swimming or sweating. Watch out for bright surfaces, like sand, water and snow, which reflect UV and increase exposure.
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <div *ngIf="uv >= 6 && uv < 7">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-3><img src="/assets/img/uvi-high.jpg"/></ion-col>
+            <ion-col col-9>
+              A UV Index reading of 6 to 7 means high risk of harm from unprotected sun exposure. Protection against skin and eye damage is needed. Reduce time in the sun between 10 a.m. and 4 p.m. If outdoors, seek shade and wear protective clothing, a wide-brimmed hat, and UV-blocking sunglasses. Generously apply broad spectrum SPF 30+ sunscreen every 2 hours, even on cloudy days, and after swimming or sweating. Watch out for bright surfaces, like sand, water and snow, which reflect UV and increase exposure.
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <div *ngIf="uv >= 8 && uv < 10">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-3><img src="/assets/img/uvi-veryhigh.jpg"/></ion-col>
+            <ion-col col-9>
+              A UV Index reading of 8 to 10 means very high risk of harm from unprotected sun exposure. Take extra precautions because unprotected skin and eyes will be damaged and can burn quickly. Minimize sun exposure between 10 a.m. and 4 p.m.
+              If outdoors, seek shade and wear protective clothing, a wide-brimmed hat, and UV-blocking sunglasses. Generously apply broad spectrum SPF 30+ sunscreen every 2 hours, even on cloudy days, and after swimming or sweating. Watch out for bright surfaces, like sand, water and snow, which reflect UV and increase exposure.
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <div *ngIf="uv >= 11">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-3><img src="/assets/img/uvi-extreme.jpg"/></ion-col>
+            <ion-col col-9>
+              A UV Index reading of 11 or more means extreme risk of harm from unprotected sun exposure. Take all precautions because unprotected skin and eyes can burn in minutes. Try to avoid sun exposure between 10 a.m. and 4 p.m. If outdoors, seek shade and wear protective clothing, a wide-brimmed hat, and UV-blocking sunglasses. Generously apply broad spectrum SPF 30+ sunscreen every 2 hours, even on cloudy days, and after swimming or sweating. Watch out for bright surfaces, like sand, water and snow, which reflect UV and increase exposure.
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+
+
       <!-- "If we were unable to poll the variable, display an error message -->
       <div *ngIf="!subscribed">
-            The device is offline or "var1" is unavailable.
+            The device is offline or "uv" is unavailable.
       </div>
   </div>
 
 </ion-content>
+<ion-footer>
+  <a href="https://www.epa.gov/sunsafety/uv-index-scale-1">More information according to the EPA</a>
+</ion-footer>

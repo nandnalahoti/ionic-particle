@@ -3,17 +3,17 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>iSense</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding> 
+<ion-content padding>
   <div *ngIf="!particle.token">
       Please login and select a device. <br />
       <button ion-button (click)="login()">Login</button>
   </div>
   <div *ngIf="particle.token && particle.device">
-      <h5> App Test </h5>
+      <h5> Know your UV </h5>
       <p>
         This app demonstrates how to access a Particle.io device to display its state, read events, and call functions.
       </p>
